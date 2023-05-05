@@ -8,44 +8,56 @@ namespace ReaderExam
 {
     internal class Navigator
     {
-        string[] allStrings;
-        string[] allPages;
+        string[] allWords;
+       string[] allPages;
         public int currentPage;
         public int totalPages;
 
-
         public Navigator(string text)
         {
-
             currentPage = 0;
-            allStrings = text.Split(" ");
-            int size = allStrings.Length;
-            if(size >= 100)
+            totalPages = 0;
+            
+            allWords = text.Split(' ');
+            int size = allWords.Length;
+            
+            if(size > 100)
             {
                 allPages = new string[size];
-                for (int i = 0, j = -1; i < size; i++)
+                for (int i = 0, j = 0; i < size; i++)
                 {
-                    if (i % 40 == 0)
+                    if (i % 100 == 0 && i != 0)
                     {
                         j++;
+                        totalPages++;
+                        allPages[j] = allWords[i] + " ";
                     }
                     else
                     {
-                        allPages[j] += allStrings[i] + " ";
+                        allPages[j] += allWords[i] + " ";
                     }
+
                 }
             }
             else
             {
                 allPages = new string[1];
                 for (int i = 0; i < size; i++)
-                    allPages[0] += allStrings[i];
+                    allPages[0] = allWords[i] + " ";
             }
-            totalPages = allPages.Length;
+            
         }
 
         public string ShowPage(int n)
         {
+            if(n < 0 || n == 0)
+            {
+                n = 0;
+            }
+            else if( n > totalPages)
+            {
+                n = totalPages;
+            } 
             return allPages[n];
         }
 

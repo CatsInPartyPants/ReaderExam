@@ -34,6 +34,7 @@
             this.btnForward = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.texbBoxPageFinder = new System.Windows.Forms.TextBox();
+            this.pageCounterLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textPage1
@@ -63,7 +64,7 @@
             // 
             // btnForward
             // 
-            this.btnForward.Location = new System.Drawing.Point(239, 360);
+            this.btnForward.Location = new System.Drawing.Point(237, 381);
             this.btnForward.Name = "btnForward";
             this.btnForward.Size = new System.Drawing.Size(108, 35);
             this.btnForward.TabIndex = 2;
@@ -73,19 +74,28 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(12, 360);
+            this.btnBack.Location = new System.Drawing.Point(12, 381);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(108, 35);
             this.btnBack.TabIndex = 3;
             this.btnBack.Text = "< <";
             this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // texbBoxPageFinder
             // 
-            this.texbBoxPageFinder.Location = new System.Drawing.Point(143, 367);
+            this.texbBoxPageFinder.Location = new System.Drawing.Point(142, 393);
             this.texbBoxPageFinder.Name = "texbBoxPageFinder";
             this.texbBoxPageFinder.Size = new System.Drawing.Size(71, 23);
             this.texbBoxPageFinder.TabIndex = 4;
+            // 
+            // pageCounterLabel
+            // 
+            this.pageCounterLabel.AutoSize = true;
+            this.pageCounterLabel.Location = new System.Drawing.Point(12, 363);
+            this.pageCounterLabel.Name = "pageCounterLabel";
+            this.pageCounterLabel.Size = new System.Drawing.Size(0, 15);
+            this.pageCounterLabel.TabIndex = 5;
             // 
             // Form1
             // 
@@ -93,6 +103,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pageCounterLabel);
             this.Controls.Add(this.texbBoxPageFinder);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnForward);
@@ -114,5 +125,6 @@
         private Button btnForward;
         private Button btnBack;
         private TextBox texbBoxPageFinder;
+        private Label pageCounterLabel;
     }
 }
