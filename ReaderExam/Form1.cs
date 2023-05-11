@@ -1,4 +1,5 @@
 using Microsoft.Office.Interop.Word;
+using Application = System.Windows.Forms.Application;
 
 namespace ReaderExam
 {
@@ -24,34 +25,42 @@ namespace ReaderExam
 
         private void btnForward_Click(object sender, EventArgs e)
         {
-            if(texbBoxPageFinder.Text == "" && navigator.currentPage < navigator.totalPages)
+            if (navigator != null)
             {
-                navigator.currentPage += 1;
-                textPage1.Text = navigator.ShowPage(navigator.currentPage);
-                pageCounterLabel.Text = "Page: " + navigator.currentPage.ToString();
-            }
-            else
-            {
-                try
+                if (texbBoxPageFinder.Text == "" && navigator.currentPage < navigator.totalPages)
                 {
-                    navigator.currentPage = Int32.Parse(texbBoxPageFinder.Text);
+                    navigator.currentPage += 1;
                     textPage1.Text = navigator.ShowPage(navigator.currentPage);
+                    pageCounterLabel.Text = "Page: " + navigator.currentPage.ToString();
                 }
-                catch { }
-                pageCounterLabel.Text = "Page: " + navigator.currentPage.ToString();
-                texbBoxPageFinder.Clear();                
+                else
+                {
+                    try
+                    {
+                        navigator.currentPage = Int32.Parse(texbBoxPageFinder.Text);
+                        textPage1.Text = navigator.ShowPage(navigator.currentPage);
+
+                    }
+                    catch { }
+                    pageCounterLabel.Text = "Page: " + navigator.currentPage.ToString();
+                    texbBoxPageFinder.Clear();
+
+                }
             }
             
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            if(navigator.currentPage > 0)
+            if (navigator != null)
             {
-                navigator.currentPage -= 1;
+                if (navigator.currentPage > 0)
+                {
+                    navigator.currentPage -= 1;
+                }
+                pageCounterLabel.Text = "Page: " + navigator.currentPage.ToString();
+                textPage1.Text = navigator.ShowPage(navigator.currentPage);
             }
-            pageCounterLabel.Text = "Page: " + navigator.currentPage.ToString();
-            textPage1.Text = navigator.ShowPage(navigator.currentPage);
         }
 
         private void buttonSearch_Click(object sender, EventArgs e)
@@ -85,6 +94,47 @@ namespace ReaderExam
                 Favorites.AddToFile(textPage1.SelectedText);
                 MessageBox.Show("Выделенный текст сохранен в файл Favorites.txt", "Информация");
             }
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void dayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+            this.BackColor = Color.WhiteSmoke;
+            textPage1.BackColor = Color.White;
+            textBoxForFind.BackColor = Color.White;
+            texbBoxPageFinder.BackColor = Color.White;
+
+            btnOpen.BackColor = Color.WhiteSmoke;
+            buttonAddToFavorite.BackColor = Color.WhiteSmoke;
+            buttonAddComment.BackColor = Color.WhiteSmoke;
+            buttonSearch.BackColor = Color.WhiteSmoke;
+            btnBack.BackColor = Color.WhiteSmoke;
+            btnForward.BackColor = Color.WhiteSmoke;
+        }
+
+        private void nightToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Silver;
+            textPage1.BackColor = Color.DarkGray;
+            textBoxForFind.BackColor = Color.DarkGray;
+            texbBoxPageFinder.BackColor = Color.DarkGray;
+
+            btnOpen.BackColor = Color.DarkGray;
+            buttonAddToFavorite.BackColor = Color.DarkGray;
+            buttonAddComment.BackColor = Color.DarkGray;
+            buttonSearch.BackColor = Color.DarkGray;
+            btnBack.BackColor = Color.DarkGray;
+            btnForward.BackColor = Color.DarkGray;
         }
     }
 }

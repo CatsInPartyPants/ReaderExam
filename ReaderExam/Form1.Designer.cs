@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.textPage1 = new System.Windows.Forms.RichTextBox();
             this.btnOpen = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -39,12 +40,22 @@
             this.textBoxForFind = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonAddToFavorite = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonAddComment = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.styleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.nightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textPage1
             // 
-            this.textPage1.Location = new System.Drawing.Point(12, 12);
+            this.textPage1.BackColor = System.Drawing.Color.White;
+            this.textPage1.ForeColor = System.Drawing.Color.Black;
+            this.textPage1.Location = new System.Drawing.Point(12, 37);
             this.textPage1.Margin = new System.Windows.Forms.Padding(4);
             this.textPage1.Name = "textPage1";
             this.textPage1.ReadOnly = true;
@@ -55,12 +66,13 @@
             // 
             // btnOpen
             // 
-            this.btnOpen.Location = new System.Drawing.Point(364, 11);
+            this.btnOpen.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnOpen.Location = new System.Drawing.Point(364, 37);
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(120, 23);
             this.btnOpen.TabIndex = 1;
             this.btnOpen.Text = "Open";
-            this.btnOpen.UseVisualStyleBackColor = true;
+            this.btnOpen.UseVisualStyleBackColor = false;
             this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
             // openFileDialog1
@@ -130,7 +142,7 @@
             // 
             // buttonAddToFavorite
             // 
-            this.buttonAddToFavorite.Location = new System.Drawing.Point(364, 50);
+            this.buttonAddToFavorite.Location = new System.Drawing.Point(364, 76);
             this.buttonAddToFavorite.Name = "buttonAddToFavorite";
             this.buttonAddToFavorite.Size = new System.Drawing.Size(120, 23);
             this.buttonAddToFavorite.TabIndex = 9;
@@ -138,22 +150,81 @@
             this.buttonAddToFavorite.UseVisualStyleBackColor = true;
             this.buttonAddToFavorite.Click += new System.EventHandler(this.buttonAddToFavorite_Click);
             // 
-            // button1
+            // buttonAddComment
             // 
-            this.button1.Location = new System.Drawing.Point(364, 91);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Add a comment";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonAddComment.Location = new System.Drawing.Point(364, 116);
+            this.buttonAddComment.Name = "buttonAddComment";
+            this.buttonAddComment.Size = new System.Drawing.Size(120, 23);
+            this.buttonAddComment.TabIndex = 10;
+            this.buttonAddComment.Text = "Add a comment";
+            this.buttonAddComment.UseVisualStyleBackColor = true;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.styleToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(546, 24);
+            this.menuStrip1.TabIndex = 11;
+            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // styleToolStripMenuItem
+            // 
+            this.styleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dayToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.nightToolStripMenuItem});
+            this.styleToolStripMenuItem.Name = "styleToolStripMenuItem";
+            this.styleToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.styleToolStripMenuItem.Text = "Style";
+            // 
+            // dayToolStripMenuItem
+            // 
+            this.dayToolStripMenuItem.Name = "dayToolStripMenuItem";
+            this.dayToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.D)));
+            this.dayToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dayToolStripMenuItem.Text = "Day";
+            this.dayToolStripMenuItem.Click += new System.EventHandler(this.dayToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
+            // nightToolStripMenuItem
+            // 
+            this.nightToolStripMenuItem.Name = "nightToolStripMenuItem";
+            this.nightToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.N)));
+            this.nightToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nightToolStripMenuItem.Text = "Night";
+            this.nightToolStripMenuItem.Click += new System.EventHandler(this.nightToolStripMenuItem_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ClientSize = new System.Drawing.Size(546, 437);
+            this.Controls.Add(this.buttonAddComment);
             this.Controls.Add(this.buttonAddToFavorite);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxForFind);
@@ -164,9 +235,14 @@
             this.Controls.Add(this.btnForward);
             this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.textPage1);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Simple Text Reader";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,6 +261,13 @@
         private TextBox textBoxForFind;
         private Label label1;
         private Button buttonAddToFavorite;
-        private Button button1;
+        private Button buttonAddComment;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem fileToolStripMenuItem;
+        private ToolStripMenuItem exitToolStripMenuItem;
+        private ToolStripMenuItem styleToolStripMenuItem;
+        private ToolStripMenuItem dayToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripMenuItem nightToolStripMenuItem;
     }
 }
