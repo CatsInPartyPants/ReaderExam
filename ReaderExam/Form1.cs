@@ -53,5 +53,38 @@ namespace ReaderExam
             pageCounterLabel.Text = "Page: " + navigator.currentPage.ToString();
             textPage1.Text = navigator.ShowPage(navigator.currentPage);
         }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            if(textBoxForFind.Text != "" && navigator != null)
+            {
+                int page = 0;
+                page = navigator.FindPageByText(textBoxForFind.Text);
+                if (page >= 0)
+                {
+                    MessageBox.Show("Текст найден на станице " + page.ToString() + ".", "Информация");
+                    textPage1.Text = navigator.ShowPage(page);
+                    textBoxForFind.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Текст не найден.", "Информация");
+                    textBoxForFind.Clear();
+                }
+            }
+        }
+
+        private void buttonAddToFavorite_Click(object sender, EventArgs e)
+        {
+            if(textPage1.SelectedText == "")
+            {
+                MessageBox.Show("Выделите текст.", "Информация");
+            }
+            else
+            {
+                Favorites.AddToFile(textPage1.SelectedText);
+                MessageBox.Show("Выделенный текст сохранен в файл Favorites.txt", "Информация");
+            }
+        }
     }
 }

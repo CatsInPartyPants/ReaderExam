@@ -9,7 +9,7 @@ namespace ReaderExam
     internal class Navigator
     {
         string[] allWords;
-       string[] allPages;
+        string[] allPages;
         public int currentPage;
         public int totalPages;
 
@@ -59,6 +59,28 @@ namespace ReaderExam
                 n = totalPages;
             } 
             return allPages[n];
+        }
+
+        public int FindPageByText(string textForFind)
+        {
+            int pageNumber = 0;
+            try
+            {
+                foreach (string s in allPages)
+                {
+                    if(s == null)
+                    {
+                        return -1;
+                    }
+                    if (s.Contains(textForFind) || s.ToLower().Contains(textForFind))
+                    {
+                        return pageNumber;
+                    }
+                    pageNumber++;
+                }
+            }
+            catch { }
+            return 0;
         }
 
     }

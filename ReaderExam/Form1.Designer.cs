@@ -35,6 +35,11 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.texbBoxPageFinder = new System.Windows.Forms.TextBox();
             this.pageCounterLabel = new System.Windows.Forms.Label();
+            this.buttonSearch = new System.Windows.Forms.Button();
+            this.textBoxForFind = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonAddToFavorite = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textPage1
@@ -97,12 +102,62 @@
             this.pageCounterLabel.Size = new System.Drawing.Size(0, 15);
             this.pageCounterLabel.TabIndex = 5;
             // 
+            // buttonSearch
+            // 
+            this.buttonSearch.Location = new System.Drawing.Point(352, 330);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(103, 23);
+            this.buttonSearch.TabIndex = 6;
+            this.buttonSearch.Text = "Search";
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            // 
+            // textBoxForFind
+            // 
+            this.textBoxForFind.Location = new System.Drawing.Point(352, 301);
+            this.textBoxForFind.Name = "textBoxForFind";
+            this.textBoxForFind.Size = new System.Drawing.Size(186, 23);
+            this.textBoxForFind.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(352, 273);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(167, 15);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Поиск информации в тексте:";
+            // 
+            // buttonAddToFavorite
+            // 
+            this.buttonAddToFavorite.Location = new System.Drawing.Point(364, 50);
+            this.buttonAddToFavorite.Name = "buttonAddToFavorite";
+            this.buttonAddToFavorite.Size = new System.Drawing.Size(120, 23);
+            this.buttonAddToFavorite.TabIndex = 9;
+            this.buttonAddToFavorite.Text = "Add to Favorites";
+            this.buttonAddToFavorite.UseVisualStyleBackColor = true;
+            this.buttonAddToFavorite.Click += new System.EventHandler(this.buttonAddToFavorite_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(364, 91);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(120, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Add a comment";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonAddToFavorite);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBoxForFind);
+            this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.pageCounterLabel);
             this.Controls.Add(this.texbBoxPageFinder);
             this.Controls.Add(this.btnBack);
@@ -126,5 +181,10 @@
         private Button btnBack;
         private TextBox texbBoxPageFinder;
         private Label pageCounterLabel;
+        private Button buttonSearch;
+        private TextBox textBoxForFind;
+        private Label label1;
+        private Button buttonAddToFavorite;
+        private Button button1;
     }
 }
