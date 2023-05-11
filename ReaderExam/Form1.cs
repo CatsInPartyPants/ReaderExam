@@ -41,7 +41,9 @@ namespace ReaderExam
                         textPage1.Text = navigator.ShowPage(navigator.currentPage);
 
                     }
-                    catch { }
+                    catch(Exception ex) {
+                        MessageBox.Show(ex.ToString(), "Error");
+                    }
                     pageCounterLabel.Text = "Page: " + navigator.currentPage.ToString();
                     texbBoxPageFinder.Clear();
 

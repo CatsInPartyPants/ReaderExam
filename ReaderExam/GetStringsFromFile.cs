@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Office.Interop.Word;
+using EpubSharp;
 
 namespace ReaderExam
 {
@@ -17,7 +18,7 @@ namespace ReaderExam
         public GetStringsFromFile()
         {
             ofd = new OpenFileDialog();
-            ofd.Filter = "Text files (*.txt; *.docx; *.rtf;)|*.txt; *.docx; *.rtf";
+            ofd.Filter = "Text files (*.txt; *.docx; *.rtf; *.epub;)|*.txt; *.docx; *.rtf; *.epub";
             ofd.FilterIndex = 2;
             ofd.RestoreDirectory = true;
             fileContent = string.Empty;
@@ -73,11 +74,21 @@ namespace ReaderExam
                             rtb.LoadFile(ofd.FileName, RichTextBoxStreamType.RichText);
                             totalText = rtb.Text;
                         }
-                        catch { }
-                        
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.ToString(), "Error GetStringsFromFile module");
+                        }
+                    }
+                    else if (temp[1] == "epub")
+                    {
+                        EpubBook book = EpubReader.Read(ofd.FileName);
+                        totalText = book.ToPlainText();
                     }
                 }
-                catch { }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString(), "Error GetStringsFromFile module");
+                }
             }
             return totalText;
         }

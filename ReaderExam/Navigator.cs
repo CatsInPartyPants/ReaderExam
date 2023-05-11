@@ -79,7 +79,10 @@ namespace ReaderExam
                     pageNumber++;
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error Navigator module");
+            }
             return 0;
         }
 
