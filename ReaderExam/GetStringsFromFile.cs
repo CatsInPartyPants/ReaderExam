@@ -14,6 +14,7 @@ namespace ReaderExam
         string fileContent;
         string filePath;
         OpenFileDialog ofd;
+        Random r = new Random();
 
         public GetStringsFromFile()
         {
@@ -96,11 +97,14 @@ namespace ReaderExam
 
             Directory.CreateDirectory("C:\\Temp\\MyLibrary");
 
-            try
+            if (dir != "C:\\Temp\\MyLibrary")
             {
-                File.Copy(filePath, "C:\\Temp\\MyLibrary\\book." + temp[1], true);
+                try
+                {
+                    File.Copy(filePath, "C:\\Temp\\MyLibrary\\" + r.Next().ToString() + "book." + temp[1], true);
+                }
+                catch { }
             }
-            catch{ }
 
             return totalText;
         }
