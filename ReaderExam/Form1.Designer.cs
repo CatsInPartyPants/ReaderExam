@@ -48,6 +48,7 @@
             this.dayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.nightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonLibrary = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -183,7 +184,7 @@
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -201,22 +202,32 @@
             // 
             this.dayToolStripMenuItem.Name = "dayToolStripMenuItem";
             this.dayToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.D)));
-            this.dayToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dayToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.dayToolStripMenuItem.Text = "Day";
             this.dayToolStripMenuItem.Click += new System.EventHandler(this.dayToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(140, 6);
             // 
             // nightToolStripMenuItem
             // 
             this.nightToolStripMenuItem.Name = "nightToolStripMenuItem";
             this.nightToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.N)));
-            this.nightToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nightToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.nightToolStripMenuItem.Text = "Night";
             this.nightToolStripMenuItem.Click += new System.EventHandler(this.nightToolStripMenuItem_Click);
+            // 
+            // buttonLibrary
+            // 
+            this.buttonLibrary.Location = new System.Drawing.Point(364, 155);
+            this.buttonLibrary.Name = "buttonLibrary";
+            this.buttonLibrary.Size = new System.Drawing.Size(120, 23);
+            this.buttonLibrary.TabIndex = 12;
+            this.buttonLibrary.Text = "My Library";
+            this.buttonLibrary.UseVisualStyleBackColor = true;
+            this.buttonLibrary.Click += new System.EventHandler(this.buttonLibrary_Click);
             // 
             // Form1
             // 
@@ -224,6 +235,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(546, 437);
+            this.Controls.Add(this.buttonLibrary);
             this.Controls.Add(this.buttonAddComment);
             this.Controls.Add(this.buttonAddToFavorite);
             this.Controls.Add(this.label1);
@@ -269,5 +281,6 @@
         private ToolStripMenuItem dayToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripMenuItem nightToolStripMenuItem;
+        private Button buttonLibrary;
     }
 }

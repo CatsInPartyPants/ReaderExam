@@ -20,21 +20,23 @@ namespace ReaderExam
             ofd = new OpenFileDialog();
             ofd.Filter = "Text files (*.txt; *.docx; *.rtf; *.epub;)|*.txt; *.docx; *.rtf; *.epub";
             ofd.FilterIndex = 2;
-            ofd.RestoreDirectory = true;
+            ofd.RestoreDirectory = false;
             fileContent = string.Empty;
             filePath = string.Empty;
-            ofd.InitialDirectory = "c:\\";
+             
         }
 
-        public string OpenFile()
+        public string OpenFile(string dir)
         {
+            ofd.InitialDirectory = dir;
             string totalText = string.Empty;
+            string[] temp = { "" };
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 filePath = ofd.FileName;
                 try
                 {
-                    string[] temp = ofd.FileName.Split('.');
+                    temp = ofd.FileName.Split('.');
 
                     //open, read docx file and send back all text 
                     if (temp[1] == "docx")
@@ -79,6 +81,7 @@ namespace ReaderExam
                             MessageBox.Show(ex.ToString(), "Error GetStringsFromFile module");
                         }
                     }
+                    //open, read epub file and send back all text 
                     else if (temp[1] == "epub")
                     {
                         EpubBook book = EpubReader.Read(ofd.FileName);
@@ -90,6 +93,15 @@ namespace ReaderExam
                     MessageBox.Show(ex.ToString(), "Error GetStringsFromFile module");
                 }
             }
+
+            Directory.CreateDirectory("C:\\Program Files\\MyLibrary");
+
+            try
+            {
+                File.Copy(filePath, "C:\\Program Files\\MyLibrary\\book." + temp[1], true);
+            }
+            catch{ }
+
             return totalText;
         }
     }

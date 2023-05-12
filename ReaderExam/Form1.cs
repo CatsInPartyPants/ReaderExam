@@ -18,7 +18,7 @@ namespace ReaderExam
         {
             textPage1.SelectionAlignment = HorizontalAlignment.Center;
             textPage1.Clear(); // очистка поля 
-            navigator = new Navigator(getStringFromFile.OpenFile());
+            navigator = new Navigator(getStringFromFile.OpenFile("C:\\"));
             textPage1.Text = navigator.ShowPage(0);
             pageCounterLabel.Text = "Page: " + navigator.currentPage.ToString();
         }
@@ -29,9 +29,9 @@ namespace ReaderExam
             {
                 if (texbBoxPageFinder.Text == "" && navigator.currentPage < navigator.totalPages)
                 {
-                    navigator.currentPage += 1;
-                    textPage1.Text = navigator.ShowPage(navigator.currentPage);
-                    pageCounterLabel.Text = "Page: " + navigator.currentPage.ToString();
+                    navigator.currentPage += 1; // увеличиваем значение текущей страницы
+                    textPage1.Text = navigator.ShowPage(navigator.currentPage); //показываем текущую страницу
+                    pageCounterLabel.Text = "Page: " + navigator.currentPage.ToString(); // добавляем номер
                 }
                 else
                 {
@@ -42,7 +42,7 @@ namespace ReaderExam
 
                     }
                     catch(Exception ex) {
-                        MessageBox.Show(ex.ToString(), "Error");
+                        //MessageBox.Show(ex.ToString(), "Error");
                     }
                     pageCounterLabel.Text = "Page: " + navigator.currentPage.ToString();
                     texbBoxPageFinder.Clear();
@@ -122,6 +122,7 @@ namespace ReaderExam
             buttonSearch.BackColor = Color.WhiteSmoke;
             btnBack.BackColor = Color.WhiteSmoke;
             btnForward.BackColor = Color.WhiteSmoke;
+            buttonLibrary.BackColor = Color.WhiteSmoke;
         }
 
         private void nightToolStripMenuItem_Click(object sender, EventArgs e)
@@ -137,6 +138,16 @@ namespace ReaderExam
             buttonSearch.BackColor = Color.DarkGray;
             btnBack.BackColor = Color.DarkGray;
             btnForward.BackColor = Color.DarkGray;
+            buttonLibrary.BackColor = Color.DarkGray;
+        }
+
+        private void buttonLibrary_Click(object sender, EventArgs e)
+        {
+            textPage1.SelectionAlignment = HorizontalAlignment.Center;
+            textPage1.Clear(); // очистка поля 
+            navigator = new Navigator(getStringFromFile.OpenFile("C:\\Program Files\\MyLibrary"));
+            textPage1.Text = navigator.ShowPage(0);
+            pageCounterLabel.Text = "Page: " + navigator.currentPage.ToString();
         }
     }
 }
