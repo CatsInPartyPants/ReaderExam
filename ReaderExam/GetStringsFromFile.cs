@@ -94,11 +94,11 @@ namespace ReaderExam
                 }
             }
 
-            Directory.CreateDirectory("C:\\Program Files\\MyLibrary");
+            Directory.CreateDirectory("C:\\Temp\\MyLibrary");
 
             try
             {
-                File.Copy(filePath, "C:\\Program Files\\MyLibrary\\book." + temp[1], true);
+                File.Copy(filePath, "C:\\Temp\\MyLibrary\\book." + temp[1], true);
             }
             catch{ }
 

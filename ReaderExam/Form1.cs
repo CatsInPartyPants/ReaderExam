@@ -145,7 +145,7 @@ namespace ReaderExam
         {
             textPage1.SelectionAlignment = HorizontalAlignment.Center;
             textPage1.Clear(); // очистка поля 
-            navigator = new Navigator(getStringFromFile.OpenFile("C:\\Program Files\\MyLibrary"));
+            navigator = new Navigator(getStringFromFile.OpenFile("C:\\Temp\\MyLibrary"));
             textPage1.Text = navigator.ShowPage(0);
             pageCounterLabel.Text = "Page: " + navigator.currentPage.ToString();
         }
